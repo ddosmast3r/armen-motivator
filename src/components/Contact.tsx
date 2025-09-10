@@ -88,7 +88,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-12 bg-eerie_black">
+    <section id="contact" className="py-12 bg-eerie_black scroll-mt-24">
       <div className="container mx-auto px-4">
         <div
           className={`transition-all duration-1000 ${

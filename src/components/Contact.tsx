@@ -168,7 +168,7 @@ const Contact = () => {
                       rel="noopener noreferrer"
                       className="block w-full bg-green-600 hover:bg-green-700 text-white py-2.5 px-3 rounded-lg font-semibold text-center text-sm transition-all duration-300 hover:shadow-lg"
                     >
-                      Тренировка
+                      📱 Тренировка
                     </a>
 
                     <a

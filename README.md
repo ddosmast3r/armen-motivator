@@ -87,6 +87,4 @@ npm start
 - Next.js 15
 - TypeScript 5
 - Tailwind CSS 3
-- Framer Motion для анимаций
-
 Сайт готов к деплою на любой современной платформе хостинга (Vercel, Netlify, и др.).

@@ -24,7 +24,7 @@ const About = () => {
   }, []);
 
   const achievements = [
-    { number: "5+", text: "лет опыта" },
+    { number: "10+", text: "лет опыта" },
     { number: "200+", text: "довольных клиентов" },
     { number: "100%", text: "индивидуальный подход" },
     { number: "24/7", text: "поддержка" },
@@ -94,15 +94,15 @@ const About = () => {
                 <h3 className="text-xl sm:text-2xl font-bold text-floral_white mb-3 sm:mb-4">
                   Профессиональный подход к фитнесу
                 </h3>
-                <p className="text-timberwolf text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed mb-4 sm:mb-6">
-                  С более чем 5-летним опытом в сфере фитнеса, я помогаю людям
-                  достигать их целей через индивидуально разработанные программы
-                  тренировок и комплексный подход к здоровью.
+                <p className="text-timberwolf text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed mb-4 sm:mb-6">
+                  С почти 10-летним опытом в сфере фитнеса помогаю людям достигать
+                  их целей через индивидуально разработанные программы тренировок
+                  и комплексный подход к здоровью.
                 </p>
-                <p className="text-timberwolf text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed mb-4 sm:mb-6">
-                  Моя философия основана на том, что каждый человек уникален,
-                  поэтому каждая программа тренировок создается с учетом
-                  индивидуальных особенностей, целей и возможностей клиента.
+                <p className="text-timberwolf text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed mb-4 sm:mb-6">
+                  Моя философия основана на том, что каждый человек уникален.
+                  Поэтому каждая программа тренировок создается с учетом индивидуальных
+                  особенностей, целей и возможностей клиента.
                 </p>
                 <div className="bg-flame/10 border border-flame/30 rounded-xl p-3 sm:p-4 mb-4 sm:mb-6">
                   <div className="flex items-center space-x-3">

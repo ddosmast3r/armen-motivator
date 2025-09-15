@@ -41,11 +41,31 @@ const Contact = () => {
     });
   };
 
+  const sendToWhatsApp = (data: typeof formData) => {
+    const phone = "79614994999";
+    const message = `🏋️ Новая заявка с сайта:
+👤 Имя: ${data.name}
+📞 Телефон: ${data.phone}
+🎯 Услуга: ${data.service || 'Не указана'}
+💬 Сообщение: ${data.message || 'Не указано'}`;
+    
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Здесь будет логика отправки формы
-    console.log("Form submitted:", formData);
-    alert("Спасибо за заявку! Я свяжусь с вами в ближайшее время.");
+    
+    // Проверяем обязательные поля
+    if (!formData.name.trim() || !formData.phone.trim()) {
+      alert("Пожалуйста, заполните имя и телефон");
+      return;
+    }
+
+    // Отправляем в WhatsApp
+    sendToWhatsApp(formData);
+    
+    // Очищаем форму
     setFormData({
       name: "",
       phone: "",
@@ -107,77 +127,107 @@ const Contact = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
-            {/* Course Banner */}
-            <div className="bg-black_olive rounded-xl shadow-xl overflow-hidden">
-              {/* Image Section */}
-              <div className="h-80 md:h-96 lg:h-[32rem] overflow-hidden">
-                <img
-                  src="/image/armen-teach.jpeg"
-                  alt="Армен Степаньянц - преподаватель курса"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            {/* Contact Form */}
+            <div className="bg-black_olive rounded-3xl shadow-xl p-8">
+              <h3 className="text-2xl font-bold text-floral_white mb-6 text-center">
+                Записаться на тренировку
+              </h3>
+              <p className="text-timberwolf-400 text-center mb-8">
+                Оставьте заявку и я свяжусь с вами в течение часа
+              </p>
 
-              {/* Content Section */}
-              <div className="p-6">
-                <h3 className="text-2xl md:text-3xl font-bold text-floral_white mb-2 text-center">
-                  Курс "Персональный тренер"
-                </h3>
-                <p className="text-lg text-flame mb-1 text-center font-semibold">
-                  Обучение от IFBB PRO тренера
-                </p>
-                <p className="text-sm text-timberwolf mb-4 text-center">
-                  Педагог института фитнеса НУФ • Официальная сертификация
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-4">
-                  <div className="bg-eerie_black rounded-lg p-3 text-center flex items-center space-x-3 sm:block sm:space-x-0">
-                    <div className="text-xl mb-0 sm:mb-1 flex-shrink-0">🎓</div>
-                    <p className="text-sm sm:text-xs text-timberwolf font-medium leading-tight flex-1 sm:flex-none text-left sm:text-center">
-                      Сертификация НУФ
-                    </p>
-                  </div>
-                  <div className="bg-eerie_black rounded-lg p-3 text-center flex items-center space-x-3 sm:block sm:space-x-0">
-                    <div className="text-xl mb-0 sm:mb-1 flex-shrink-0">👥</div>
-                    <p className="text-sm sm:text-xs text-timberwolf font-medium leading-tight flex-1 sm:flex-none text-left sm:text-center">
-                      Практические занятия
-                    </p>
-                  </div>
-                  <div className="bg-eerie_black rounded-lg p-3 text-center flex items-center space-x-3 sm:block sm:space-x-0">
-                    <div className="text-xl mb-0 sm:mb-1 flex-shrink-0">📋</div>
-                    <p className="text-sm sm:text-xs text-timberwolf font-medium leading-tight flex-1 sm:flex-none text-left sm:text-center">
-                      Официальный диплом
-                    </p>
-                  </div>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label className="block text-floral_white font-medium mb-2">
+                    Имя *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 bg-eerie_black border border-black_olive-400 rounded-lg text-floral_white focus:border-flame focus:outline-none focus:ring-2 focus:ring-flame/20"
+                    placeholder="Ваше имя"
+                  />
                 </div>
 
-                <div className="space-y-3">
+                <div>
+                  <label className="block text-floral_white font-medium mb-2">
+                    Телефон *
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 bg-eerie_black border border-black_olive-400 rounded-lg text-floral_white focus:border-flame focus:outline-none focus:ring-2 focus:ring-flame/20"
+                    placeholder="+7 (999) 123-45-67"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-floral_white font-medium mb-2">
+                    Услуга
+                  </label>
+                  <select
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-eerie_black border border-black_olive-400 rounded-lg text-floral_white focus:border-flame focus:outline-none focus:ring-2 focus:ring-flame/20"
+                  >
+                    <option value="">Выберите услугу</option>
+                    <option value="personal-training">Персональная тренировка</option>
+                    <option value="course">Курс "Персональный тренер"</option>
+                    <option value="consultation">Консультация по питанию</option>
+                    <option value="rehabilitation">Реабилитация после травм</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-floral_white font-medium mb-2">
+                    Сообщение
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={4}
+                    className="w-full px-4 py-3 bg-eerie_black border border-black_olive-400 rounded-lg text-floral_white focus:border-flame focus:outline-none focus:ring-2 focus:ring-flame/20 resize-none"
+                    placeholder="Расскажите о ваших целях и пожеланиях..."
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-flame hover:bg-flame-600 text-floral_white py-4 px-6 rounded-lg font-bold text-lg transition-all duration-300 hover:shadow-lg hover:scale-105"
+                >
+                  Отправить заявку
+                </button>
+              </form>
+
+              <div className="mt-6 pt-6 border-t border-black_olive-400">
+                <p className="text-timberwolf-400 text-sm text-center">
+                  Или свяжитесь со мной напрямую:
+                </p>
+                <div className="flex justify-center space-x-4 mt-3">
                   <a
-                    href="https://tolyatti.nuf.fitness/courses/pyatigorsk.-fitnes-trener-trenazhernogo-zala.-ochnyj-kurs"
+                    href="https://wa.me/79614994999?text=Здравствуйте! Хочу записаться на тренировку"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full bg-flame hover:bg-flame-600 text-floral_white py-4 px-6 rounded-lg font-bold text-center text-lg transition-all duration-300 hover:shadow-lg"
+                    className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300"
                   >
-                    🎓 Записаться на курс
+                    <span>📱</span>
+                    <span>WhatsApp</span>
                   </a>
-
-                  <div className="space-y-2 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-3">
-                    <a
-                      href="https://wa.me/79614994999?text=Здравствуйте! Хочу записаться на тренировку в Alex Fitness"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full bg-green-600 hover:bg-green-700 text-white py-2.5 px-3 rounded-lg font-semibold text-center text-sm transition-all duration-300 hover:shadow-lg"
-                    >
-                      📱 Тренировка
-                    </a>
-
-                    <a
-                      href="tel:+79614994999"
-                      className="block w-full bg-blue-600 hover:bg-blue-700 text-floral_white py-2.5 px-3 rounded-lg font-semibold text-center text-sm transition-all duration-300 hover:shadow-lg"
-                    >
-                      📞 Позвонить
-                    </a>
-                  </div>
+                  <a
+                    href="tel:+79614994999"
+                    className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300"
+                  >
+                    <span>📞</span>
+                    <span>Позвонить</span>
+                  </a>
                 </div>
               </div>
             </div>

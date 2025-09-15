@@ -37,7 +37,7 @@ const Header = () => {
               Армен Степаньянц
             </div>
             <div className="text-sm font-medium text-timberwolf-400">
-              Персональный тренер
+              Тренер и преподаватель
             </div>
           </div>
 
@@ -54,6 +54,18 @@ const Header = () => {
               className="px-4 py-2 rounded-full font-semibold transition-all duration-300 hover:scale-105 text-floral_white hover:bg-flame hover:text-floral_white shadow-sm"
             >
               Обо мне
+            </button>
+            <button
+              onClick={() => scrollToSection("course")}
+              className="px-4 py-2 rounded-full font-semibold transition-all duration-300 hover:scale-105 text-floral_white hover:bg-flame hover:text-floral_white shadow-sm"
+            >
+              Курс
+            </button>
+            <button
+              onClick={() => scrollToSection("gallery")}
+              className="px-4 py-2 rounded-full font-semibold transition-all duration-300 hover:scale-105 text-floral_white hover:bg-flame hover:text-floral_white shadow-sm"
+            >
+              Галерея
             </button>
             <button
               onClick={() => scrollToSection("services")}
@@ -116,6 +128,18 @@ const Header = () => {
                 className="text-left py-3 px-4 font-semibold text-floral_white hover:bg-flame hover:text-floral_white transition-all duration-300 rounded-lg"
               >
                 Обо мне
+              </button>
+              <button
+                onClick={() => scrollToSection("course")}
+                className="text-left py-3 px-4 font-semibold text-floral_white hover:bg-flame hover:text-floral_white transition-all duration-300 rounded-lg"
+              >
+                Курс
+              </button>
+              <button
+                onClick={() => scrollToSection("gallery")}
+                className="text-left py-3 px-4 font-semibold text-floral_white hover:bg-flame hover:text-floral_white transition-all duration-300 rounded-lg"
+              >
+                Галерея
               </button>
               <button
                 onClick={() => scrollToSection("services")}

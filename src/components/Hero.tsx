@@ -45,7 +45,7 @@ const Hero = () => {
               </h1>
               
               <p className="text-lg sm:text-xl md:text-2xl lg:text-2xl font-medium text-timberwolf mb-6 sm:mb-8">
-                Персональный тренер по фитнесу
+                Персональный тренер и преподаватель
               </p>
               
               <div className="bg-black_olive/40 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-6 border border-flame/20">

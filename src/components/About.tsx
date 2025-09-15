@@ -143,8 +143,100 @@ const About = () => {
             </div>
           </div>
 
+          {/* Certificates Section */}
+          <div className="mt-16">
+            <div className="text-center mb-8">
+              <h3 className="text-3xl md:text-4xl font-heading font-bold text-floral_white mb-4">
+                Сертификаты и <span className="gradient-text">квалификация</span>
+              </h3>
+              <p className="text-lg text-timberwolf-400 max-w-2xl mx-auto">
+                Подтверждённая профессиональная квалификация и постоянное развитие в области фитнеса
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-16">
+              {/* Existing Certificate */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer bg-black_olive/40 backdrop-blur-sm border border-flame/20">
+                <div className="aspect-[3/4] overflow-hidden">
+                  <img 
+                    src="/image/doc/armen.jpg"
+                    alt="Сертификат Армена Степаньянца"
+                    className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110"
+                  />
+                </div>
+                
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-flame/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="text-center">
+                    <svg className="w-12 h-12 text-floral_white mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M3 4a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 13a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1v-3zM12 4a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1V4zM12 13a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-3z" clipRule="evenodd" />
+                    </svg>
+                    <p className="text-floral_white font-medium">Увеличить</p>
+                  </div>
+                </div>
+
+                <div className="p-4">
+                  <h4 className="text-lg font-semibold text-floral_white mb-2">
+                    Сертификат специалиста
+                  </h4>
+                  <p className="text-sm text-timberwolf-400">
+                    Профессиональная квалификация в области фитнеса
+                  </p>
+                </div>
+              </div>
+
+              {/* Placeholder Certificate 1 */}
+              <div className="relative overflow-hidden rounded-2xl shadow-lg bg-black_olive/20 backdrop-blur-sm border-2 border-dashed border-flame/30">
+                <div className="aspect-[3/4] flex items-center justify-center bg-gradient-to-br from-black_olive/40 to-eerie_black/60">
+                  <div className="text-center p-6">
+                    <div className="w-16 h-16 bg-flame/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-8 h-8 text-flame" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <p className="text-timberwolf-400 font-medium text-sm">
+                      В процессе добавления
+                    </p>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h4 className="text-lg font-semibold text-floral_white/60 mb-2">
+                    Дополнительная квалификация
+                  </h4>
+                  <p className="text-sm text-timberwolf-400/60">
+                    Скоро будет добавлен новый сертификат
+                  </p>
+                </div>
+              </div>
+
+              {/* Placeholder Certificate 2 */}
+              <div className="relative overflow-hidden rounded-2xl shadow-lg bg-black_olive/20 backdrop-blur-sm border-2 border-dashed border-flame/30">
+                <div className="aspect-[3/4] flex items-center justify-center bg-gradient-to-br from-black_olive/40 to-eerie_black/60">
+                  <div className="text-center p-6">
+                    <div className="w-16 h-16 bg-flame/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-8 h-8 text-flame" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <p className="text-timberwolf-400 font-medium text-sm">
+                      В процессе добавления
+                    </p>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h4 className="text-lg font-semibold text-floral_white/60 mb-2">
+                    Специализация
+                  </h4>
+                  <p className="text-sm text-timberwolf-400/60">
+                    Скоро будет добавлен новый сертификат
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Achievements */}
-          <div className="mt-16 bg-black_olive rounded-3xl shadow-xl p-8">
+          <div className="mt-8 bg-black_olive rounded-3xl shadow-xl p-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {achievements.map((achievement, index) => (
                 <div key={index} className="text-center">
